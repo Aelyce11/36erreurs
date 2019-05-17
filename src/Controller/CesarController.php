@@ -1,9 +1,15 @@
 <?php
 namespace Controller;
 use ThirtySix\Connexion;
+use Model\Nominee;
+use Model\User;
+use Model\Category;
 
 class CesarController{
   public function gagnantsAction(){
+
+    $pdo = Connexion::getInstance();
+
     $winners = Nominee::getWinners($pdo);
 
     $bestplayers = User::getBest($pdo);

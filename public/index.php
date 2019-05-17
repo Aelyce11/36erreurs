@@ -15,13 +15,13 @@ if(isset($url_composants[3])){
 
 if(isset($url_composants[1])){
   if(strlen($url_composants[1]) ==0){
-    $controller_name = "index"; 
+    $controller_name = "index";
   }else{
-    $controller_name = $url_composants[1];    
+    $controller_name = $url_composants[1];
   }
-  
+
 }else{
-  $controller_name = "index";  
+  $controller_name = "index";
 }
 if(isset($url_composants[2])){
   $action_name = $url_composants[2];
@@ -31,10 +31,10 @@ if(isset($url_composants[2])){
 
 try{
 
-  list($controller, $action) = ThirtySix\Router::load($action_name,$controller_name);
+  list($controller, $action) = ThirtySix\Router::load($controller_name, $action_name);
 
 }catch(ThirtySix\Exception\ControllerNotFound $e){
-  $controller = new ErrorController();
+  $controller = new Controller\ErrorController();
   $action = "e404";
   $argument = $e;
 
